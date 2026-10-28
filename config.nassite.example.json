@@ -1,0 +1,10 @@
+{
+  "devices": [
+    {
+      "id": "nas-site",
+      "name": "NAS SITE",
+      "endpoint": "https://nassite.hbcg.vn:5001",
+      "route": "public"
+    }
+  ]
+}

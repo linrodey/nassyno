@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "source_type": "operator_ui_report",
+  "device_id": "nas-site",
+  "observed_at": null,
+  "model": null,
+  "dsm_version": null,
+  "changes_made": false,
+  "observations": [
+    {
+      "feature": "system",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "resources",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "storage_disks",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "smart",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "storage_pools",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "volumes",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "ssd_cache",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "iscsi",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "file_station",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "identities",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "acl",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "firewall",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "connectivity",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    },
+    {
+      "feature": "directory_snmp",
+      "status": "not_checked",
+      "ui_path": null,
+      "summary": null,
+      "limitation": null
+    }
+  ]
+}

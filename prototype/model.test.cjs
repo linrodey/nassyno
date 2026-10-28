@@ -1,0 +1,5 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const M=require('./model.js');
+test('Tổng volume chỉ tính NAS có dữ liệu hợp lệ, báo phần thiếu',()=>{const t=M.totals(M.devices);assert.equal(t.total,56);assert.equal(t.missing,1);assert.ok(Math.abs(t.used-44.6)<1e-9);assert.deepEqual(M.totals([M.devices[2]]),{total:0,used:0,missing:1});});
+test('Lọc đồng thời tên và nguồn danh tính',()=>{assert.equal(M.filterUsers('TRAN','LDAP').length,1);assert.equal(M.filterUsers('tran','Portal Office').length,0);assert.equal(M.filterUsers('missing','').length,0);});
+test('Xem trước ACL giới hạn phạm vi, từ chối quyền ngoài danh sách',()=>{assert.match(M.preview('acl','Đọc / Ghi'),/không áp đệ quy/);assert.throws(()=>M.preview('acl','admin'));});
+test('Kiểm tra IPv4 trước xem trước, không cho thực thi',()=>{for(const ip of ['999.1.1.1','abc','1.2.3','1.2.3.-1','<script>'])assert.throws(()=>M.preview('ip',ip));assert.match(M.preview('ip','192.0.2.18'),/thực thi bị khóa/);assert.throws(()=>M.preview('delete','all'));});

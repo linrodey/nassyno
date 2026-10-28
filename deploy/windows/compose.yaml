@@ -1,0 +1,25 @@
+services:
+  nas-manager:
+    build:
+      context: ../..
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      NAS_MANAGER_CONFIG: /run/nas/inventory.json
+      NAS_MANAGER_ADMIN_TOKEN_FILE: /run/secrets/app_admin_token
+      NAS_MANAGER_LOCAL_CONSOLE_ORIGIN: http://127.0.0.1:8080
+    secrets:
+      - app_admin_token
+    volumes:
+      - ./runtime/inventory.json:/run/nas/inventory.json:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: "no"
+secrets:
+  app_admin_token:
+    file: ./runtime/app-token

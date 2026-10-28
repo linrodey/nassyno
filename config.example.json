@@ -1,0 +1,9 @@
+{
+  "devices": [
+    {
+      "id": "nas-lab",
+      "name": "NAS thử nghiệm — thay bằng thiết bị thật",
+      "endpoint": "https://nas-lab.example.invalid:5001"
+    }
+  ]
+}

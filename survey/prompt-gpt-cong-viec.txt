@@ -1,0 +1,23 @@
+Hãy khảo sát CHỈ ĐỌC NAS Synology tại https://nassite.hbcg.vn:5001 để chuẩn bị ứng dụng quản trị nhiều NAS (repo linrodey/nassyno).
+
+Dùng phiên đăng nhập được phép hiện có, kiểm tra đúng hostname/TLS. Nếu có skill hbcg-synology-nas, đọc SKILL.md và baseline/operations trước khảo sát; baseline chỉ là lịch sử, không thay trạng thái hiện tại. Model trong hồ sơ là RS2423RP+II, phải xác minh trên UI chứ không suy ra từ tên.
+
+Không thay đổi NAS: không Apply/Save/OK cấu hình, không bật SSH/SNMP/API, không cài gói/nâng DSM, không khởi động lại, không chạy SMART/scrub/repair, không tạo User/Group, không áp ACL, không ngắt phiên hoặc sửa firewall. Đóng hộp cấu hình bằng Cancel. Không chấp nhận thông báo tự mở cổng. Chờ bảng tải xong, không coi Loading hoặc thiếu quyền là không có dữ liệu.
+
+Không xuất mật khẩu/OTP/cookie/SID/SynoToken/Authorization header/private key, support bundle hay nội dung tài liệu doanh nghiệp. Không copy request/response đăng nhập, HAR, console dump hoặc toàn bộ cấu hình LDAP/Portal. Chỉ tổng hợp metadata cần thiết, dùng bí danh cho người dùng/nhóm/thư mục/IP ngoài endpoint đã được cấp. Không xuất toàn bộ danh sách file hoặc tài khoản.
+
+Khảo sát theo từng mục, ghi thời điểm GMT+7 và đường dẫn UI bằng chứng:
+1. Info Center: model, bản DSM đầy đủ, uptime, trạng thái tham gia domain/LDAP (không ghi credential).
+2. Resource Monitor: CPU/RAM, giao diện mạng, đơn vị lưu lượng, khả năng xem phiên người dùng. Chỉ xem, không ngắt phiên.
+3. Storage Manager: số khay/enclosure, HDD/SSD và trạng thái, nhiệt độ; trang SMART gần nhất và khả năng hiển thị; tuổi thọ SSD nếu có. Không chạy kiểm tra mới. Dùng alias ổ thay serial thật trong báo cáo chia sẻ.
+4. Quan hệ ổ → Pool → Volume: RAID/SHR, thành viên/Hot Spare, trạng thái/rebuild, Btrfs/ext4 và dung lượng có nhãn rõ lớp/đơn vị. Không cộng vật lý, Pool, Volume. Ghi SSD Cache và LUN/Target nếu có; không cài SAN Manager nếu chưa có.
+5. File Station: xác nhận mở được và xem metadata của đúng một thư mục thử nghiệm được người quản trị chỉ định. Nếu chưa có thư mục được chỉ định, chỉ xem danh sách share, chưa mở tài liệu. Không tải hoặc mở nội dung file.
+6. User & Group: tổng số và phân loại local/domain/LDAP nếu UI cung cấp; khả năng xem thành viên nhóm, không ghi tên thật hoặc hashes. Không tạo tài khoản.
+7. Quyền: dùng thư mục thử nghiệm được chỉ định; xem quyền share, ACL trực tiếp/kế thừa và nhóm. Nếu chưa có thư mục thử nghiệm, đánh dấu chưa kiểm tra. Không suy ra quyền hiệu lực chỉ từ một ACE, không áp đệ quy.
+8. Security/Firewall: xem có bật không, profile/interface, cách thể hiện thứ tự luật; tổng hợp số luật thay vì xuất địa chỉ/mạng chi tiết. Không sửa hoặc thử chặn IP.
+9. External Access/Login Portal/Reverse Proxy: xác nhận đường HTTPS hiện tại, QuickConnect bật/chưa kiểm tra, không xuất ID nếu chưa được phép; ghi khả năng truy cập, không đổi cấu hình. Không kết luận QuickConnect hỗ trợ API backend chỉ từ trang DSM mở được.
+10. Directory Services/SNMP/SSO: chỉ ghi loại tích hợp và trạng thái hiện có, không xuất bind DN/credential, community hay auth/privacy key; không bật dịch vụ mới.
+
+Với mỗi mục ghi một trong: observed / not_found / not_checked / blocked, UI path, kết quả tóm tắt và giới hạn. not_found chỉ khi đã mở đúng trang, đủ quyền và dữ liệu tải xong. UI hiển thị chức năng không chứng minh API backend được hỗ trợ. Tách đề xuất khỏi hiện trạng. Nếu thiếu quyền hoặc thông tin, dừng mục đó, tiếp tục các mục độc lập.
+
+Trả báo cáo Markdown đã lọc bí mật; nếu có mẫu survey/template.json từ repo thì trả thêm JSON đúng mẫu, giữ source_type=operator_ui_report. Chưa kiểm tra thì giữ null/not_checked, không điền dữ liệu minh họa thành dữ liệu thật. Cuối báo cáo ghi: có thay đổi gì không, mục nào chưa kiểm tra và cần gì để tiếp tục. Chỉ logout nếu phiên do bạn tự tạo và việc đó không đóng phiên người dùng đang sử dụng; không xuất phiên đăng nhập để chuyển sang GPT khác.
