@@ -19,3 +19,7 @@ Không có credential/cookie nào được chuyển giữa các phiên GPT. Tr�
 Báo cáo từ phiên GPT Công việc luôn có provenance `operator_ui_report`: có thể chứng minh người vận hành đã quan sát UI nếu được rà soát, không nâng trạng thái thành backend/API đã kiểm chứng. Template mặc định `not_checked`, không tự điền thông tin từ baseline.
 
 Không thử tạo tài khoản, ACL, firewall hoặc thay đổi storage trước khi có kiểm chứng backend và duyệt bước tương ứng. Những thử nghiệm bằng tài khoản admin trước đây chỉ là đăng nhập thất bại, không chứng minh quyền ứng dụng.
+
+## Cập nhật sau báo cáo UI ngày 28/10/2026
+
+Đã nhận hai báo cáo từ người dùng và kiểm tra JSON: 12 mục UI observed; SSD Cache và ACL not_checked. Xem [kết quả rà soát](11-survey-review.md). Những ô trước đây ghi chỉ có prototype nay đã có nguồn UI cho system/resources/disks/SMART/pools/volumes/iSCSI/File Station/identities/firewall/connectivity/directory-SNMP trong phạm vi báo cáo; khả năng API/backend ở các mục đó vẫn chưa được xác minh. Không có đăng nhập backend thành công mới. Không publish inventory hoặc báo cáo gốc.

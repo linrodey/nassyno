@@ -5,7 +5,7 @@
 ## Trạng thái thực tế
 
 - Đã xác minh HTTPS/TLS và API discovery NAS SITE; Auth 1–7, FileStation.Info 1–2 được công bố.
-- Chưa đăng nhập thành công, chưa đọc cấu hình NAS có xác thực. Các phép thử login trả 400/101; giao diện DSM mã hóa đầu vào khiến proxy binding không còn điểm thay thế.
+- Backend hiện tại chưa đăng nhập thành công hoặc đọc trực tiếp cấu hình NAS có xác thực; đã nhận báo cáo UI từ phiên GPT Công việc. Các phép thử login trả 400/101; giao diện DSM mã hóa đầu vào khiến proxy binding không còn điểm thay thế.
 - Backend, form và adapter hiện có kiểm thử mock; prototype dùng dữ liệu giả. Không suy ra ứng dụng đã quản trị được NAS thật.
 - Chưa có SSO/RBAC, audit bền vững, secret vault hoặc triển khai production. Chưa mở thao tác ghi.
 
@@ -20,6 +20,11 @@
 - [Phương án kết nối đã chốt và giới hạn thực tế](docs/10-connection-decision.md)
 - [Tải gói khảo sát](downloads/nassyno-survey-kit.zip) — mở file trên GitHub rồi chọn Download raw.
 - [Yêu cầu khảo sát dạng văn bản](survey/prompt-gpt-cong-viec.txt) — có thể đọc/copy trực tiếp, không bắt buộc tải ZIP.
+
+## Báo cáo UI đã nhận
+
+- [Rà soát khảo sát ngày 28/10/2026](docs/11-survey-review.md): JSON hợp lệ, 12 mục observed và 2 mục not_checked.
+- Báo cáo gốc giữ ngoài Git; kết quả UI không thay thế kiểm thử NAS thật của backend.
 
 ## Công việc hiện tại
 
