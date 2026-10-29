@@ -26,6 +26,10 @@
 - [Rà soát khảo sát ngày 28/10/2026](docs/11-survey-review.md): JSON hợp lệ, 12 mục observed và 2 mục not_checked.
 - Báo cáo gốc giữ ngoài Git; kết quả UI không thay thế kiểm thử NAS thật của backend.
 
+## Phân hệ mới: File Audit & Version Control
+
+- [Đặc tả và backlog module](docs/12-file-audit-version-control.md): nhật ký thao tác theo user/file, lịch sử phiên bản, so sánh nội dung Word/Excel theo pha. **Mới bổ sung phạm vi, chưa triển khai, chưa bật log/versioning trên NAS.**
+
 ## Công việc hiện tại
 
 - [Gói khảo sát chỉ đọc cho phiên GPT Công việc](docs/08-readonly-survey-handoff.md)
