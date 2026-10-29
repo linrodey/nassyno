@@ -12,6 +12,15 @@ Mỗi bước gửi kết quả để người dùng duyệt, chỉ chuyển bư
 | 6. Firewall và phiên | Các chức năng đã có bằng chứng hỗ trợ | Thứ tự luật, IPv4/IPv6, đường quản trị dự phòng; quyền ngắt phiên; không thao tác production khi chưa nghiệm thu |
 | 7. Tích hợp và vận hành | Zabbix/Prometheus khi cần, backup, hướng dẫn, triển khai | Nguồn/thời gian metric rõ; tải 15 NAS và tình huống mất kết nối; phục hồi backup; nghiệm thu đầu cuối |
 
+## Nhánh triển khai File Audit & Version Control (được bổ sung 29/10/2026)
+
+- FA-0 khảo sát read-only nguồn log/versioning và quyền qua các giao thức; không cấu hình NAS.
+- FA-1 mock UI, mô hình dữ liệu, collector chỉ đọc, tra cứu sự kiện; nghiệm thu trên NAS thử nghiệm sau khi nền tảng kết nối Bước 2 hoàn tất.
+- FA-2 truy vấn phiên bản và phục hồi theo phê duyệt trên dữ liệu thử nghiệm.
+- FA-3 so sánh nội dung Word/Excel của hai phiên bản trong môi trường xử lý bảo mật.
+
+Đặc tả chi tiết và backlog: [docs/12-file-audit-version-control.md](12-file-audit-version-control.md). Không thay đổi điều kiện nghiệm thu của Bước 2 hiện tại.
+
 ## Cách kiểm thử
 
 - Unit: chuyển đổi đơn vị, tính tổng đúng lớp, ánh xạ danh tính, idempotency và trạng thái tác vụ.
